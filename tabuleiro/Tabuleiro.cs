@@ -14,7 +14,13 @@ namespace Xadres.tabuleiro
     {
       this.colunas = colunas;
       this.linhas = linhas;
-      this.pecas = new Peca[linhas, colunas];
+      pecas = new Peca[linhas, colunas];
+    }
+
+
+    public Peca Peca(int linha, int coluna)
+    {
+      return pecas[linha, coluna];
     }
   }
 }

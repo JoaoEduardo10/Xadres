@@ -23,10 +23,44 @@ namespace Xadres.tabuleiro
       return pecas[linha, coluna];
     }
 
+    public Peca Peca(Posicao posicao)
+    {
+      return pecas[posicao.Linha, posicao.Coluna];
+    }
+
+    public bool exitePeca(Posicao posicao)
+    {
+      ValidarPosicao(posicao);
+      return Peca(posicao) != null;
+    }
+
     public void ColocarPeca(Peca peca, Posicao posicao)
     {
+      if (exitePeca(posicao))
+      {
+        throw new TabuleiroExeption("Já existe uma peca na posição " + posicao.ToString());
+      }
+
       pecas[posicao.Linha, posicao.Coluna] = peca;
       peca.posicao = posicao;
+    }
+
+    public bool PosicaoValida(Posicao posicao)
+    {
+      if (posicao.Coluna < 0 || posicao.Coluna >= colunas || posicao.Linha < 0 || posicao.Linha >= linhas)
+      {
+        return false;
+      }
+
+      return true;
+    }
+
+    public void ValidarPosicao(Posicao posicao)
+    {
+      if (!PosicaoValida(posicao))
+      {
+        throw new TabuleiroExeption("Posição invalida!");
+      }
     }
   }
 }

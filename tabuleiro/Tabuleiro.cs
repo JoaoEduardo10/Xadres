@@ -22,5 +22,11 @@ namespace Xadres.tabuleiro
     {
       return pecas[linha, coluna];
     }
+
+    public void ColocarPeca(Peca peca, Posicao posicao)
+    {
+      pecas[posicao.Linha, posicao.Coluna] = peca;
+      peca.posicao = posicao;
+    }
   }
 }

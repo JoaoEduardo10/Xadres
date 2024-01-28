@@ -45,6 +45,21 @@ namespace Xadres.tabuleiro
       peca.posicao = posicao;
     }
 
+
+    public Peca retirarPeca(Posicao posicao)
+    {
+      if (Peca(posicao) == null)
+      {
+        return null;
+      }
+
+
+      Peca aux = Peca(posicao);
+      aux.posicao = null;
+      pecas[posicao.Linha, posicao.Coluna] = null;
+      return aux;
+    }
+
     public bool PosicaoValida(Posicao posicao)
     {
       if (posicao.Coluna < 0 || posicao.Coluna >= colunas || posicao.Linha < 0 || posicao.Linha >= linhas)

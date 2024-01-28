@@ -13,19 +13,24 @@ namespace Xadres.tabuleiro
     public Peca(Cor cor, Tabuleiro tabuleiro)
     {
 
-      this.posicao = null;
+      posicao = null;
 
       this.cor = cor;
 
       this.tabuleiro = tabuleiro;
 
-      this.Quantidade_de_Movimentos = 0;
+      Quantidade_de_Movimentos = 0;
     }
 
     public Peca(Tabuleiro tabuleiro, Cor cor)
     {
       this.tabuleiro = tabuleiro;
       this.cor = cor;
+    }
+
+    public void IncrementeQuantidadeDeMovimentos()
+    {
+      Quantidade_de_Movimentos++;
     }
   }
 }
